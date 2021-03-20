@@ -122,11 +122,15 @@ session_start();
 
 
 
-			<div class="container mt-5 ">
+	<div class="container mt-5 ">
+	<a href="dashboard.php" class="btn btn-primary" > Dashboard </a>
+
     <div class="tours text-center">
       <span class="h3"> Add Tour  </span>
+
       <hr>
     </div>
+	
     <div class="row ">
       <div class="col-lg-12 col-md-6 col-sm-12 p-3">
             <form action="./PHPFiles/addTour.php" method="POST" enctype="multipart/form-data">

@@ -1,7 +1,6 @@
-<?php 
+<?php
 require_once("./dashboard/config.php");
 session_start();
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -104,7 +103,7 @@ session_start();
 				<div class="row">
 					<div class="col-xs-12 col-md-8 col-md-offset-2">
 
-						<h2 class="color-white">sea tours in Minya</h2>
+						<h2 class="color-white">Add Tour</h2>
 					</div>
 				</div>
 			</div>
@@ -115,172 +114,101 @@ session_start();
 
 
 	<div class="detail-wrapper">
-	 <div class="container-fluid">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-12">
 
-			<div class="panel panel-danger ">
-				<!-- Default panel contents -->
-				<div class="panel-heading"><h3> Tours </h3></div>
-					<div class="panel-body">
-						<a href="./addTour.php" class="btn btn-primary" > Add New Tour</a>
-					</div>
-						<?php 
-							$sql = "SELECT * from tours"; 
-							$result = mysqli_query($mysqli , $sql);
-							if(mysqli_num_rows($result) > 0) :
-						?>
-					<!-- Table -->
-					<table class="table table-striped">
-							<thead>
-								<tr>
-									<th>Tour Image</th>
-									<th>Tour Name</th>
-									<th>Start Date</th>
-									<th>Start Date</th>
-									<th>Tour Price</th>
-									<th>Tour Details</th>
-									<th>Tour Guide</th>
-									<th>Admin</th>
-								</tr>
-							</thead>
-							<?php
-								foreach(mysqli_fetch_all($result,MYSQLI_ASSOC)  as $tour) :?>
-							<tbody>
-								<tr>
-									<td> <img style="width:100px;height:100px" src="./img/tours/<?php echo $tour["tour_image"] ?>" class="img-thumbnail"></td>
-									<td><?php echo $tour["tour_name"] ?></td>
-									<td><?php echo $tour["start_date"] ?></td>
-									<td><?php echo $tour["start_date"] ?></td>
-									<td><?php echo $tour["tour_price"]."EGP" ?></td>
-									<td><?php echo $tour["tour_detail"] ?></td>
-									<td>
-									<?php
-									$guide_id = $tour['tour_guide_id'];
-									$sql ="SELECT * from tour_guide where ID = $guide_id"; 
-									$result = mysqli_query($mysqli , $sql);
-									while($row = mysqli_fetch_row($result))
-									{
-										echo $row[1];
-									}
-									?>
-									</td>
-
-									<td>
-									<?php
-									$admin_id = $tour['adminID'];
-									$sql ="SELECT * from admins where admin_id = $admin_id"; 
-									$result = mysqli_query($mysqli , $sql);
-							
-									while($row = mysqli_fetch_row($result))
-									{
-										echo $row[1];
-									}
-									?>
-									</td>
-
-									<td>
-									<a href="./PHPFiles/deleteTour.php?id=<?php echo $tour['tour_id'] ?>" class="btn btn-danger" >Delete</a>
-									</td>
-									<td>
-									<a href="./addTour.php" class="btn btn-primary" >Edit</a>
-									</td>
 
 
-									
-								</tr>
-								<?php endforeach; ?>
-							</tbody>
-					
-					</table>
-					<?php endif; ?>
-		  </div>
-		 </div>
-		</div>
-	  </div>
-	</div>
 
+
+	<div class="container mt-5 ">
+	<a href="dashboard.php" class="btn btn-primary" > Dashboard </a>
+
+    <div class="tours text-center">
+      <span class="h3"> Add Tour  </span>
+
+      <hr>
+    </div>
+	<?php 
+         
+    
+    ?>
+    <div class="row ">
+      <div class="col-lg-12 col-md-6 col-sm-12 p-3">
+            <form action="./PHPFiles/addTour.php" method="POST" enctype="multipart/form-data">
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="inputTour4">Tour Name</label>
+                    <input type="text" name="tourName" class="form-control" id="inputTour4" placeholder="Tour Name" required>
+                    <?php if(isset($_SESSION['tourName'])): ?>
+                    <small id="emailHelp" class="form-text  text-danger"><?php  echo $_SESSION['tourName'];?></small>
+                    <?php endif; ?>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputSDate4">Start Date</label>
+                    <input type="date" name="startDate" class="form-control" id="inputSDate4" required>
+                    <?php if(isset($_SESSION['startDate'])): ?>
+                    <small id="emailHelp" class="form-text  text-danger"><?php  echo $_SESSION['startDate'];?></small>
+                    <?php endif; ?>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputEDate">End Date</label>
+                    <input type="date" name="endDate" class="form-control" id="inputEDate" required>
+                    <?php if(isset($_SESSION['endDate'])): ?>
+                    <small id="emailHelp" class="form-text  text-danger"><?php  echo $_SESSION['endDate'];?></small>
+                    <?php endif; ?>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputPrice4">Tour Price</label>
+                    <input type="number" name="tourPrice" class="form-control" id="inputPrice4" required>
+                    <?php if(isset($_SESSION['tourPrice'])): ?>
+                    <small id="emailHelp" class="form-text  text-danger"><?php  echo $_SESSION['tourPrice'];?></small>
+                    <?php endif; ?>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputGuide">Tour Guide</label>
+                    <select id="inputGuide" class="form-control" name="tourGuideId">
+                      <?php
+                       $sql= "select * from tour_guide";
+                       $result=mysqli_query($mysqli , $sql);
+                       while($guide_data = mysqli_fetch_array($result))
+                       {
+                         echo "<option name='tourGuideId'>".$guide_data['ID'].'-'. $guide_data['name'] ."</option>";
+                       }
+                      
+                      ?>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="exampleFormControlTextarea1">Tour Details</label>
+                  <textarea class="form-control" name="tourDetails" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="form-group col-md-12">
+                <label for="exampleFormControlFile1">Tour Images</label>
+                 <!-- <input type="file" class="form-control-file" id="exampleFormControlFile1"> -->
+                 <input type="file"  class="form-control-file"  name="fileToUpload_gallery[]" id="fileToUpload_gallery" multiple required >
+                </div>
+                <div class="form-group col-md-12">
+                <button type="submit" name="addTour" class="btn btn-primary">Add Tour</button>
+				</div>
+              </form>
+       
+      </div>
+  
+    </div>
+
+
+
+  </div>
 	
-
-
-	<div class="detail-wrapper">
-	 <div class="container-fluid">
-		<div class="row">
-			<div class="col-lg-12">
-
-			<div class="panel panel-success ">
-				<!-- Default panel contents -->
-				<div class="panel-heading"> <h3> Hotels </h3></div>
-					<div class="panel-body">
-						<a href="./addHotel.php" class="btn btn-primary" > Add New Hotel</a>
-					</div>
-						<?php 
-							$sql = "SELECT * from hotels"; 
-							$result = mysqli_query($mysqli , $sql);
-							if(mysqli_num_rows($result) > 0) :
-						?>
-					<!-- Table -->
-					<table class="table table-striped">
-							<thead>
-								<tr>
-									<th>Hotel Image</th>
-									<th>Hotel Name</th>
-									<th>Hotel Address</th>
-									<th>Hotel Price</th>
-									<th>Hotel Details</th>
-									<th>Hotel Type</th>
-									<th>Admin</th>
-								</tr>
-							</thead>
-							<?php
-								foreach(mysqli_fetch_all($result,MYSQLI_ASSOC)  as $hotel) :?>
-							<tbody>
-								<tr>
-									<td> <img style="width:100px;height:100px" src="./img/hotels/<?php echo $hotel["hot_image"] ?>" class="img-thumbnail"></td>
-									<td><?php echo $hotel["hot_name"] ?></td>
-									<td><?php echo $hotel["hot_address"] ?></td>
-									<td><?php echo $hotel["hot_price"]."EGP" ?></td>
-									<td><?php echo $hotel["hot_detail"] ?></td>
-									<td><?php echo $hotel["hot_type"] ?></td>
-									<td>
-									<?php
-									$admin_id = $hotel['admin_id'];
-									$sql ="SELECT * from admins where admin_id = $admin_id"; 
-									$result = mysqli_query($mysqli , $sql);
-							
-									while($row = mysqli_fetch_row($result))
-									{
-										echo $row[1];
-									}
-									?>
-									</td>
-									<td>
-									<a href="./PHPFiles/deleteHotel.php?id=<?php echo $tour['tour_id'] ?>" class="btn btn-danger" >Delete</a>
-									</td>
-									<td>
-									<a href="./editHotel.php" class="btn btn-primary" >Edit</a>
-									</td>
-
-
-									
-								</tr>
-								<?php endforeach; ?>
-							</tbody>
-					
-					</table>
-					<?php endif; ?>
-		  </div>
-		 </div>
+				
+			</div>
+		  
 		</div>
 	  </div>
 	</div>
-
-
-
-
-
-
-
 	<footer class="bg-dark type-2">
 		<div class="container">
 			<div class="row">
