@@ -1,5 +1,6 @@
 <?php 
-include_once("../config.php");
+require_once("../Dashboard/config.php");
+session_start();
 
 ?>
 
@@ -76,7 +77,7 @@ if(isset($_POST['addTour']))
     {
         $lastImageName=time().$image_name[$i];
     
-        move_uploaded_file($image_tmp[$i] , "../images/".$lastImageName);
+        move_uploaded_file($image_tmp[$i] , "./image/".$lastImageName);
        // move_uploaded_file($image_tmp[$i]  , "".$image_name[$i]);
 
         $all_image[]=$lastImageName;
@@ -88,7 +89,7 @@ if(isset($_POST['addTour']))
 
     if(isset($_SESSION['tourName']) || isset($_SESSION['startDate']) || isset($_SESSION['endDate']) || isset($_SESSION['tourPrice'])  )
     {
-        header('Location:../Dashboard.php');
+        header('Location:../addTour.php');
 
     }
     else{
@@ -97,7 +98,7 @@ if(isset($_POST['addTour']))
 
     if(mysqli_query($mysqli , $sql))
     {
-        header('location:../Dashboard.php');
+        header('location:../dashboard.php');
 
     }
     else
