@@ -131,21 +131,21 @@ session_start();
       <div class="col-lg-12 col-md-6 col-sm-12 p-3">
             <form action="./PHPFiles/addTour.php" method="POST" enctype="multipart/form-data">
                 <div class="form-row">
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-12">
                     <label for="inputTour4">Tour Name</label>
                     <input type="text" name="tourName" class="form-control" id="inputTour4" placeholder="Tour Name" required>
                     <?php if(isset($_SESSION['tourName'])): ?>
                     <small id="emailHelp" class="form-text  text-danger"><?php  echo $_SESSION['tourName'];?></small>
                     <?php endif; ?>
                   </div>
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-6">
                     <label for="inputSDate4">Start Date</label>
                     <input type="date" name="startDate" class="form-control" id="inputSDate4" required>
                     <?php if(isset($_SESSION['startDate'])): ?>
                     <small id="emailHelp" class="form-text  text-danger"><?php  echo $_SESSION['startDate'];?></small>
                     <?php endif; ?>
                   </div>
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-6">
                     <label for="inputEDate">End Date</label>
                     <input type="date" name="endDate" class="form-control" id="inputEDate" required>
                     <?php if(isset($_SESSION['endDate'])): ?>
@@ -183,7 +183,9 @@ session_start();
                  <!-- <input type="file" class="form-control-file" id="exampleFormControlFile1"> -->
                  <input type="file"  class="form-control-file"  name="fileToUpload_gallery[]" id="fileToUpload_gallery" multiple required >
                 </div>
+                <div class="form-group col-md-12">
                 <button type="submit" name="addTour" class="btn btn-primary">Add Tour</button>
+				</div>
               </form>
        
       </div>
