@@ -131,44 +131,55 @@ session_start();
       <hr>
     </div>
 	<?php 
-         
+         if(isset($_GET['id'])){
+             if(is_numeric($_GET['id']))
+             {
+                 $id =$_GET['id'];
+                 $sql = "SELECT * from tours where tour_id = $id";
+                 $result = mysqli_query($mysqli , $sql);
+                 $row = mysqli_fetch_assoc($result);
+                 $_SESSION['tourId'] = $id;
+
+             }
+             
+         }
     
     ?>
     <div class="row ">
       <div class="col-lg-12 col-md-6 col-sm-12 p-3">
-            <form action="./PHPFiles/addTour.php" method="POST" enctype="multipart/form-data">
+            <form action="./PHPFiles/updateTour.php" method="POST" enctype="multipart/form-data">
                 <div class="form-row">
                   <div class="form-group col-md-12">
                     <label for="inputTour4">Tour Name</label>
-                    <input type="text" name="tourName" class="form-control" id="inputTour4" placeholder="Tour Name" required>
+                    <input type="text" name="tourName" class="form-control" id="inputTour4" value ="<?php echo $row['tour_name'] ?>" placeholder="Tour Name" required>
                     <?php if(isset($_SESSION['tourName'])): ?>
                     <small id="emailHelp" class="form-text  text-danger"><?php  echo $_SESSION['tourName'];?></small>
                     <?php endif; ?>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputSDate4">Start Date</label>
-                    <input type="date" name="startDate" class="form-control" id="inputSDate4" required>
+                    <input type="date" name="startDate" class="form-control" value ="<?php echo $row['start_date'] ?>" id="inputSDate4" required>
                     <?php if(isset($_SESSION['startDate'])): ?>
                     <small id="emailHelp" class="form-text  text-danger"><?php  echo $_SESSION['startDate'];?></small>
                     <?php endif; ?>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputEDate">End Date</label>
-                    <input type="date" name="endDate" class="form-control" id="inputEDate" required>
+                    <input type="date" name="endDate" class="form-control" value ="<?php echo $row['end_date'] ?>"  id="inputEDate" required>
                     <?php if(isset($_SESSION['endDate'])): ?>
                     <small id="emailHelp" class="form-text  text-danger"><?php  echo $_SESSION['endDate'];?></small>
                     <?php endif; ?>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputPrice4">Tour Price</label>
-                    <input type="number" name="tourPrice" class="form-control" id="inputPrice4" required>
+                    <input type="number" name="tourPrice" class="form-control" value ="<?php echo $row['tour_price'] ?>"  id="inputPrice4" required>
                     <?php if(isset($_SESSION['tourPrice'])): ?>
                     <small id="emailHelp" class="form-text  text-danger"><?php  echo $_SESSION['tourPrice'];?></small>
                     <?php endif; ?>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputGuide">Tour Guide</label>
-                    <select id="inputGuide" class="form-control" name="tourGuideId">
+                    <select id="inputGuide" class="form-control"  name="tourGuideId">
                       <?php
                        $sql= "select * from tour_guide";
                        $result=mysqli_query($mysqli , $sql);
@@ -183,15 +194,20 @@ session_start();
                 </div>
                 <div class="form-group col-md-12">
                   <label for="exampleFormControlTextarea1">Tour Details</label>
-                  <textarea class="form-control" name="tourDetails" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <textarea class="form-control" name="tourDetails"   id="exampleFormControlTextarea1" rows="3"><?php echo $row['tour_detail']?></textarea>
                 </div>
                 <div class="form-group col-md-12">
+                
+                <?php $images = explode(',', $row['tour_image']) ?>
+                <?php  for($i=0 ;$i< count($images) ; $i++ ):?>
+                <img src="./img/tours/<?php echo $images[$i]; ?>"  class="img-rounded " style="width:150px;height:150px;margin:2px">
+                <?php endfor; ?>
+                <br>
                 <label for="exampleFormControlFile1">Tour Images</label>
-                 <!-- <input type="file" class="form-control-file" id="exampleFormControlFile1"> -->
-                 <input type="file"  class="form-control-file"  name="fileToUpload_gallery[]" id="fileToUpload_gallery" multiple required >
+                 <input type="file"  class="form-control-file"  value ="<?php echo $row['tour_image'] ?>"  name="fileToUpload_gallery[]" id="fileToUpload_gallery" multiple >
                 </div>
                 <div class="form-group col-md-12">
-                <button type="submit" name="addTour" class="btn btn-primary">Add Tour</button>
+                <button type="submit" name="editTour" class="btn btn-primary">Edit Tour</button>
 				</div>
               </form>
        
