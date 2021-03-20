@@ -1,5 +1,5 @@
 <?php 
-require_once("./Dashboard/config.php");
+require_once("./dashboard/config.php");
 session_start();
 
 ?>
@@ -152,7 +152,7 @@ session_start();
 							foreach(mysqli_fetch_all($result,MYSQLI_ASSOC)  as $tour) :?>
 						<tbody>
 							<tr>
-								<td> <img style="width:100px;height:100px" src="./PHPFiles/image/<?php echo $tour["tour_image"] ?>" class="img-thumbnail"></td>
+								<td> <img style="width:100px;height:100px" src="/img/tours/<?php echo $tour["tour_image"] ?>" class="img-thumbnail"></td>
 								<td><?php echo $tour["tour_name"] ?></td>
 								<td><?php echo $tour["start_date"] ?></td>
 								<td><?php echo $tour["start_date"] ?></td>

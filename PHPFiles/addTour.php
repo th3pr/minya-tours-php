@@ -1,5 +1,5 @@
 <?php 
-require_once("../Dashboard/config.php");
+require_once("../dashboard/config.php");
 session_start();
 
 ?>
@@ -77,9 +77,7 @@ if(isset($_POST['addTour']))
     {
         $lastImageName=time().$image_name[$i];
     
-        move_uploaded_file($image_tmp[$i] , "./image/".$lastImageName);
-       // move_uploaded_file($image_tmp[$i]  , "".$image_name[$i]);
-
+        move_uploaded_file($image_tmp[$i] , "../img/tours/".$lastImageName);
         $all_image[]=$lastImageName;
     }
     $images=implode(',' , $all_image );

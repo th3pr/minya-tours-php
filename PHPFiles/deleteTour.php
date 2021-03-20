@@ -1,5 +1,5 @@
 <?php 
-require_once("../Dashboard/config.php");
+require_once("../dashboard/config.php");
 session_start();
 
 ?>

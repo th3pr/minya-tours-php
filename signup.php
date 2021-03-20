@@ -132,7 +132,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class="col-xs-12 col-sm-7">
                     <div class="f-login-content">
                         <div class="f-login-header">
-                            <div class="f-login-title color-dr-blue-2">Hello!</div>
+                            <div class="f-login-title color-dr-blue-2">Sign Up!</div>
                             <div class="f-login-desc color-grey">Please Sign Up</div>
                         </div>
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
