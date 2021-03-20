@@ -198,7 +198,7 @@ session_start();
                  <input type="file"  class="form-control-file"  name="fileToUpload_gallery[]" id="fileToUpload_gallery" multiple required >
                 </div>
                 <div class="form-group col-md-12">
-                <button type="submit" name="editHotel" class="btn btn-primary">Add Hotel</button>
+                <button type="submit" name="editHotel" class="btn btn-primary">Edit Hotel</button>
 				</div>
               </form>
        
