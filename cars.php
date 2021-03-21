@@ -111,21 +111,6 @@ $result = $conn->query($sql);
 			</div>
 		</div>
 	</header>
-	<!-------popup start-->
-	<div class="modal">
-		<img src="img/imges/Car-Travel-Logo.jpg" width="114" height="70" />
-		<span class="title">OTA Cars
-			Welcomes you
-		</span>
-
-		<div class="button">OK</div>
-	</div>
-	<script>
-		let modal = document.querySelector(".modal");
-		let button = document.querySelector(".button");
-		button.addEventListener("click", () => modal.classList.add("toggle"));
-	</script>
-	<!--------------popup end------------------------------------------------------------------------>
 
 	<div class="inner-banner">
 		<img class="center-image" src="img/slider-1.jpg" alt="">

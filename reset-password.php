@@ -1,0 +1,147 @@
+<?php
+// Initialize the session
+session_start();
+
+// Check if the user is logged in, otherwise redirect to login page
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
+    exit;
+}
+
+// Include config file
+require_once "config.php";
+
+// Define variables and initialize with empty values
+$new_password = $confirm_password = "";
+$new_password_err = $confirm_password_err = "";
+
+// Processing form data when form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // Validate new password
+    if (empty(trim($_POST["new_password"]))) {
+        $new_password_err = "Please enter the new password.";
+    } elseif (strlen(trim($_POST["new_password"])) < 6) {
+        $new_password_err = "Password must have atleast 6 characters.";
+    } else {
+        $new_password = trim($_POST["new_password"]);
+    }
+
+    // Validate confirm password
+    if (empty(trim($_POST["confirm_password"]))) {
+        $confirm_password_err = "Please confirm the password.";
+    } else {
+        $confirm_password = trim($_POST["confirm_password"]);
+        if (empty($new_password_err) && ($new_password != $confirm_password)) {
+            $confirm_password_err = "Password did not match.";
+        }
+    }
+
+    // Check input errors before updating the database
+    if (empty($new_password_err) && empty($confirm_password_err)) {
+        // Prepare an update statement
+        $sql = "UPDATE users SET user_passwords = ? WHERE user_id = ?";
+
+        if ($stmt = $conn->prepare($sql)) {
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "si", $param_password, $param_id);
+
+            // Set parameters
+            $param_password = password_hash($new_password, PASSWORD_DEFAULT);
+            $param_id = $_SESSION["user_id"];
+
+            // Attempt to execute the prepared statement
+            if (mysqli_stmt_execute($stmt)) {
+                // Password updated successfully. Destroy the session, and redirect to login page
+                session_destroy();
+                header("location: login.php");
+                exit();
+            } else {
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            mysqli_stmt_close($stmt);
+        }
+    }
+
+    // Close connection
+    mysqli_close($conn);
+}
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <title>Minya Tours | Sign Up</title>
+</head>
+
+<body data-color="mainColor">
+    <!-- LOADER -->
+    <div class="loading dr-blue-2">
+        <div class="loading-center">
+            <div class="loading-center-absolute">
+                <div class="object object_four"></div>
+                <div class="object object_three"></div>
+                <div class="object object_two"></div>
+                <div class="object object_one"></div>
+            </div>
+        </div>
+    </div>
+    <img class="center-image" src="img/1.jpg" alt="">
+    <div class="container">
+        <div class="login-fullpage">
+            <div class="row">
+                <div class="login-logo"><img class="center-image" src="img/11.jpg" alt=""></div>
+                <div class="col-xs-12 col-sm-7">
+                    <div class="f-login-content">
+                        <div class="f-login-header">
+                            <div class="f-login-title color-dr-blue-2">Reset Password!</div>
+                        </div>
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                            <div class="form-group">
+                                <label>New Password</label>
+                                <input type="password" name="new_password" class="form-control <?php echo (!empty($new_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $new_password; ?>">
+                                <span class="invalid-feedback"><?php echo $new_password_err; ?></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>">
+                                <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary" value="Submit">
+                                <a class="btn btn-link ml-2" href="user.php">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="full-copy">&copy; 2021 All rights reserved. ITI</div>
+    </div>
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/idangerous.swiper.min.js"></script>
+    <script src="js/jquery.viewportchecker.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+    <script src="js/jquery.circliful.min.js"></script>
+    <script src="js/all.js"></script>
+</body>
+
+</html>
