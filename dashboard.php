@@ -259,7 +259,7 @@ session_start();
 									?>
 									</td>
 									<td>
-									<a href="./PHPFiles/deleteHotel.php?id=<?php echo $hotel['tour_id'] ?>" class="btn btn-danger" >Delete</a>
+									<a href="./PHPFiles/deleteHotel.php?id=<?php echo $hotel['hot_id'] ?>" class="btn btn-danger" >Delete</a>
 									</td>
 									<td>
 									

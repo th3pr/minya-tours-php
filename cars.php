@@ -1,3 +1,12 @@
+<?php
+require_once("config.php");
+
+$sql = "SELECT * FROM `cars`";
+
+$result = $conn->query($sql);
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -85,15 +94,15 @@
 								<li class="type-1">
 									<a href="index.php">home<span class="fa fa-angle-down"></span></a>
 								</li>
-								<li class="type-1 "><a href="hotels.html">Hotels<span
+								<li class="type-1 "><a href="hotels.php">Hotels<span
 											class="fa fa-angle-down"></span></a>
 
 								</li>
-								<li class="type-1 active"><a href="cars.html">Cars<span
+								<li class="type-1 active"><a href="cars.php">Cars<span
 											class="fa fa-angle-down"></span></a>
 
 								</li>
-								<li class="type-1"><a href="tours.html">Tours<span class="fa fa-angle-down"></span></a>
+								<li class="type-1"><a href="tours.php">Tours<span class="fa fa-angle-down"></span></a>
 								</li>
 							</ul>
 						</nav>
@@ -134,6 +143,8 @@
 						data-slides-per-view="responsive" data-mob-slides="1" data-xs-slides="2" data-sm-slides="2"
 						data-md-slides="3" data-lg-slides="3" data-add-slides="3">
 						<div class="swiper-wrapper">
+
+							<!-- <?php?> -->
 							<div class="swiper-slide" data-val="0">
 								<div class="offers-block radius-mask">
 									<div class="clip">
@@ -149,7 +160,7 @@
 											<span class="fa fa-star color-yellow"></span>
 											<span class="fa fa-star color-yellow"></span>
 										</div>
-										<h3>Nissan</h3>
+										<h3>TO</h3>
 									</div>
 									<div class="vertical-bottom">
 										<ul class="offers-info">
@@ -163,6 +174,8 @@
 									</div>
 								</div>
 							</div>
+
+							
 							<div class="swiper-slide" data-val="1">
 								<div class="offers-block radius-mask">
 									<div class="clip">
@@ -274,6 +287,9 @@
 				</div>
 			</div>
 			<div class="row">
+
+
+			
 				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 					<div class="radius-mask tour-block hover-aqua">
 						<div class="clip">
@@ -395,7 +411,7 @@
 	</div>
 
 
-	<!-- TOP PREVIEW-->
+	<!-- TOP PREVIEW
 	<div class="top-preview row no-margin">
 		<div class="col-mob-12 col-xs-6 col-sm-6 col-md-3 no-padding">
 			<div class="tp_entry style-2">
@@ -645,7 +661,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 
 
@@ -796,88 +812,37 @@
 							<div class="change-to-label fr color-grey-8">View:</div>
 						</div>
 					</div>
+
+
 					<div class="list-content clearfix">
-						<div class="list-item-entry">
-							<div class="hotel-item style-3 bg-white">
-								<div class="table-view">
-									<div class="radius-top cell-view">
-										<img src="img/cars/PORSCHECAYENNE.jpg" alt="">
-									</div>
-									<div class="title hotel-middle clearfix cell-view">
-										<div class="date list-hidden">July <strong>19th</strong> to July
-											<strong>26th</strong>
-										</div>
-										<div class="date grid-hidden"><strong>19.07 - 26.07 / 7</strong> night</div>
-										<h4><b>Marcides</b></h4>
-										<div class="rate-wrap">
-											<div class="rate">
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-											</div>
-											<i>485 rewies</i>
-										</div>
-										<p class="f-14 grid-hidden">Nunc cursus libero purus ac congue arcu cur sus ut
-											sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.</p>
-									</div>
-									<div class="title hotel-right clearfix cell-view">
-										<div class="hotel-person color-dark-2">from <span class="color-blue">EG
-												653</span> person</div>
-										<a class="c-button b-40 bg-blue hv-blue-o grid-hidden"
-											href="car_detail.html">Book Now</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="list-item-entry">
-							<div class="hotel-item style-3 bg-white">
-								<div class="table-view">
-									<div class="radius-top cell-view">
-										<img src="img/cars/71BekpCdZvL._UY560_.jpg" alt="">
-									</div>
-									<div class="title hotel-middle clearfix cell-view">
-										<div class="date list-hidden">July <strong>19th</strong> to July
-											<strong>26th</strong>
-										</div>
-										<div class="date grid-hidden"><strong>19.07 - 26.07 / 7</strong> night</div>
-										<h4><b>BMW</b></h4>
-										<div class="rate-wrap">
-											<div class="rate">
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-											</div>
-											<i>485 rewies</i>
-										</div>
-										<p class="f-14 grid-hidden">Nunc cursus libero purus ac congue arcu cur sus ut
-											sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.</p>
-									</div>
-									<div class="title hotel-right clearfix cell-view">
-										<div class="hotel-person color-dark-2">from <span class="color-blue">EG
-												703</span> person</div>
-										<a class="c-button b-40 bg-blue hv-blue-o grid-hidden"
-											href="car_detail.html">Book Now</a>
-									</div>
-								</div>
-							</div>
-						</div>
 
+						<!-- Cheack If Ther Is Not data -->
+						<?php
+							if($result->num_rows>0) {
+							while($row = $result->fetch_assoc()){
+						?>
 						<div class="list-item-entry">
 							<div class="hotel-item style-3 bg-white">
 								<div class="table-view">
 									<div class="radius-top cell-view">
-										<img src="img/2014_Nissan_Versa_01.jpg" alt="">
+										<?php 
+										 if (empty($row['car_image'])) {
+											echo "<img src='img/cars/default.png' alt=''/>";
+                                        } else {
+											echo "<img src='img/cars/" . $row['car_image'] . "' alt=''/>";
+                                        }
+										?>
 									</div>
 									<div class="title hotel-middle clearfix cell-view">
 										<div class="date list-hidden">July <strong>19th</strong> to July
 											<strong>26th</strong>
 										</div>
 										<div class="date grid-hidden"><strong>19.07 - 26.07 / 7</strong> night</div>
-										<h4><b>Jeep</b></h4>
+										<h4><b>
+											<?php
+												echo $row['car_model'];
+											?>
+										</b></h4>
 										<div class="rate-wrap">
 											<div class="rate">
 												<span class="fa fa-star color-yellow"></span>
@@ -888,122 +853,30 @@
 											</div>
 											<i>485 rewies</i>
 										</div>
-										<p class="f-14 grid-hidden">Nunc cursus libero purus ac congue arcu cur sus ut
-											sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.</p>
+										<p class="f-14 grid-hidden">
+											<?php
+											echo $row['car_detail'];
+											?>
+										</p>
 									</div>
 									<div class="title hotel-right clearfix cell-view">
-										<div class="hotel-person color-dark-2">from <span class="color-blue">EG
-												300</span> person</div>
+										<div class="hotel-person color-dark-2">from <span class="color-blue">EGY
+												<?php echo$row['car_price_hour']?></span> person</div>
 										<a class="c-button b-40 bg-blue hv-blue-o grid-hidden"
-											href="car_detail.html">Book Now</a>
+											href="car_detail.php?car_id1=<?php echo $row['car_id']?>">Book Now</a>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="list-item-entry">
-							<div class="hotel-item style-3 bg-white">
-								<div class="table-view">
-									<div class="radius-top cell-view">
-										<img src="img/61q033vciXL._UY560_.jpg" alt="">
-									</div>
-									<div class="title hotel-middle clearfix cell-view">
-										<div class="date list-hidden">July <strong>19th</strong> to July
-											<strong>26th</strong>
-										</div>
-										<div class="date grid-hidden"><strong>19.07 - 26.07 / 7</strong> night</div>
-										<h4><b>HYUNDAI</b></h4>
-										<div class="rate-wrap">
-											<div class="rate">
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-											</div>
-											<i>485 rewies</i>
-										</div>
-										<p class="f-14 grid-hidden">Nunc cursus libero purus ac congue arcu cur sus ut
-											sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.</p>
-									</div>
-									<div class="title hotel-right clearfix cell-view">
-										<div class="hotel-person color-dark-2">from <span class="color-blue">EG
-												400</span> person</div>
-										<a class="c-button b-40 bg-blue hv-blue-o grid-hidden"
-											href="car_detail.html">Book Now</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="list-item-entry">
-							<div class="hotel-item style-3 bg-white">
-								<div class="table-view">
-									<div class="radius-top cell-view">
-										<img src="img/2014_Nissan_Versa_01.jpg" alt="">
-									</div>
-									<div class="title hotel-middle clearfix cell-view">
-										<div class="date list-hidden">July <strong>19th</strong> to July
-											<strong>26th</strong>
-										</div>
-										<div class="date grid-hidden"><strong>19.07 - 26.07 / 7</strong> night</div>
-										<h4><b>Marsidec</b></h4>
-										<div class="rate-wrap">
-											<div class="rate">
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-											</div>
-											<i>485 rewies</i>
-										</div>
-										<p class="f-14 grid-hidden">Nunc cursus libero purus ac congue arcu cur sus ut
-											sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.</p>
-									</div>
-									<div class="title hotel-right clearfix cell-view">
-										<div class="hotel-person color-dark-2">from <span class="color-blue">EG
-												273</span> person</div>
-										<a class="c-button b-40 bg-blue hv-blue-o grid-hidden"
-											href="car_detail.html">Book Now</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="list-item-entry">
-							<div class="hotel-item style-3 bg-white">
-								<div class="table-view">
-									<div class="radius-top cell-view">
-										<img src="img/cars/PORSCHECAYENNE.jpg" alt="">
-									</div>
-									<div class="title hotel-middle clearfix cell-view">
-										<div class="date list-hidden">July <strong>19th</strong> to July
-											<strong>26th</strong>
-										</div>
-										<div class="date grid-hidden"><strong>19.07 - 26.07 / 7</strong> night</div>
-										<h4><b>HYUNDAI</b></h4>
-										<div class="rate-wrap">
-											<div class="rate">
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-												<span class="fa fa-star color-yellow"></span>
-											</div>
-											<i>485 rewies</i>
-										</div>
-										<p class="f-14 grid-hidden">Nunc cursus libero purus ac congue arcu cur sus ut
-											sed vitae pulvinar. Nunc cursus libero purus ac congue arcu.</p>
-									</div>
-									<div class="title hotel-right clearfix cell-view">
-										<div class="hotel-person color-dark-2">from <span class="color-blue">EG
-												273</span> person</div>
-										<a class="c-button b-40 bg-blue hv-blue-o grid-hidden"
-											href="car_detail.html">Book Now</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
+						<?php
+							}
+						    }else {
+								echo '<div class="text-center bg-blue"><h2>Ther Is No Car To Show It </h3></div>';
+							}
+					   ?>
 					</div>
+								
+
 					<div class="c_pagination clearfix padd-120">
 						<a href="#" class="c-button b-40 bg-dr-blue-2 hv-dr-blue-2-o fl">prev page</a>
 						<a href="#" class="c-button b-40 bg-dr-blue-2 hv-dr-blue-2-o fr">next page</a>

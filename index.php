@@ -84,10 +84,11 @@ session_start();
 								<li class="type-1 active">
 									<a href="index.php">home<span class="fa fa-angle-down"></span></a>
 								</li>
-								<li class="type-1"><a href="hotels.html">Hotels<span class="fa fa-angle-down"></span></a></li>
-								<li class="type-1"><a href="cars.html">Cars<span class="fa fa-angle-down"></span></a>
+								<li class="type-1"><a href="hotels.php">Hotels<span class="fa fa-angle-down"></span></a>
 								</li>
-								<li class="type-1"><a href="tours.html">Tours<span class="fa fa-angle-down"></span></a>
+								<li class="type-1"><a href="cars.php">Cars<span class="fa fa-angle-down"></span></a>
+								</li>
+								<li class="type-1"><a href="tours.php">Tours<span class="fa fa-angle-down"></span></a>
 								</li>
 							</ul>
 						</nav>
@@ -117,11 +118,17 @@ session_start();
 										</li>
 										<li class="click-tabs"><a href="cars.html" data-toggle="tab" aria-expanded="false">Cars</a></li>
 										<li class="click-tabs"><a href="tours.html" data-toggle="tab" aria-expanded="false">Tours</a></li>
+										<li class="active click-tabs"><a href="hotels.html" data-toggle="tab"
+												aria-expanded="false">Hotels</a>
+										</li>
+										<li class="click-tabs"><a href="cars.html" data-toggle="tab"
+												aria-expanded="false">Cars</a></li>
+										<li class="click-tabs"><a href="tours.html" data-toggle="tab"
+												aria-expanded="false">Tours</a></li>
 									</ul>
 								</div>
 							</div>
 							<div class="tab-content tpl-tabs-cont section-text t-con-style-1">
-								<!-- First Tap -->
 								<div class="tab-pane active in" id="one">
 									<div class="container">
 										<div class="row">
@@ -130,7 +137,8 @@ session_start();
 													<h5>Your Destinations</h5>
 													<div class="input-style">
 														<img src="img/loc_icon_small.png" alt="">
-														<input type="text" placeholder="Enter a destination or hotel name">
+														<input type="text"
+															placeholder="Enter a destination or hotel name">
 													</div>
 												</div>
 											</div>
@@ -159,6 +167,8 @@ session_start();
 														<div class="drop">
 															<b>01 kids</b>
 															<a href="#" class="drop-list"><i class="fa fa-angle-down"></i></a>
+															<a href="#" class="drop-list"><i
+																	class="fa fa-angle-down"></i></a>
 															<span>
 																<a href="#">01 kids</a>
 																<a href="#">02 kids</a>
@@ -176,6 +186,8 @@ session_start();
 														<div class="drop">
 															<b>01 adult</b>
 															<a href="#" class="drop-list"><i class="fa fa-angle-down"></i></a>
+															<a href="#" class="drop-list"><i
+																	class="fa fa-angle-down"></i></a>
 															<span>
 																<a href="#">01 adult</a>
 																<a href="#">02 adult</a>
@@ -193,6 +205,8 @@ session_start();
 														<div class="drop">
 															<b>01 room</b>
 															<a href="#" class="drop-list"><i class="fa fa-angle-down"></i></a>
+															<a href="#" class="drop-list"><i
+																	class="fa fa-angle-down"></i></a>
 															<span>
 																<a href="#">01 room</a>
 																<a href="#">02 room</a>
@@ -205,6 +219,8 @@ session_start();
 											</div>
 											<div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
 												<a href="#" class="c-button b-60 bg-aqua hv-transparent"><i class="fa fa-search"></i><span>search now</span></a>
+												<a href="#" class="c-button b-60 bg-aqua hv-transparent"><i
+														class="fa fa-search"></i><span>search now</span></a>
 											</div>
 										</div>
 									</div>
@@ -218,6 +234,8 @@ session_start();
 													<div class="input-style">
 														<img src="img/loc_icon_small.png" alt="">
 														<input type="text" placeholder="Enter a destination or flight name">
+														<input type="text"
+															placeholder="Enter a destination or flight name">
 													</div>
 												</div>
 											</div>
@@ -246,6 +264,8 @@ session_start();
 														<div class="drop">
 															<b>01 kids</b>
 															<a href="#" class="drop-list"><i class="fa fa-angle-down"></i></a>
+															<a href="#" class="drop-list"><i
+																	class="fa fa-angle-down"></i></a>
 															<span>
 																<a href="#">01 kids</a>
 																<a href="#">02 kids</a>
@@ -263,6 +283,8 @@ session_start();
 														<div class="drop">
 															<b>01 adult</b>
 															<a href="#" class="drop-list"><i class="fa fa-angle-down"></i></a>
+															<a href="#" class="drop-list"><i
+																	class="fa fa-angle-down"></i></a>
 															<span>
 																<a href="#">01 adult</a>
 																<a href="#">02 adult</a>
@@ -280,6 +302,8 @@ session_start();
 														<div class="drop">
 															<b>01 room</b>
 															<a href="#" class="drop-list"><i class="fa fa-angle-down"></i></a>
+															<a href="#" class="drop-list"><i
+																	class="fa fa-angle-down"></i></a>
 															<span>
 																<a href="#">01 room</a>
 																<a href="#">02 room</a>
@@ -292,6 +316,8 @@ session_start();
 											</div>
 											<div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
 												<a href="#" class="c-button b-60 bg-aqua hv-transparent"><i class="fa fa-search"></i><span>search now</span></a>
+												<a href="#" class="c-button b-60 bg-aqua hv-transparent"><i
+														class="fa fa-search"></i><span>search now</span></a>
 											</div>
 										</div>
 									</div>
@@ -305,6 +331,8 @@ session_start();
 													<div class="input-style">
 														<img src="img/loc_icon_small.png" alt="">
 														<input type="text" placeholder="Enter a destination or car name">
+														<input type="text"
+															placeholder="Enter a destination or car name">
 													</div>
 												</div>
 											</div>
@@ -333,6 +361,8 @@ session_start();
 														<div class="drop">
 															<b>01 kids</b>
 															<a href="#" class="drop-list"><i class="fa fa-angle-down"></i></a>
+															<a href="#" class="drop-list"><i
+																	class="fa fa-angle-down"></i></a>
 															<span>
 																<a href="#">01 kids</a>
 																<a href="#">02 kids</a>
@@ -350,6 +380,8 @@ session_start();
 														<div class="drop">
 															<b>01 adult</b>
 															<a href="#" class="drop-list"><i class="fa fa-angle-down"></i></a>
+															<a href="#" class="drop-list"><i
+																	class="fa fa-angle-down"></i></a>
 															<span>
 																<a href="#">01 adult</a>
 																<a href="#">02 adult</a>
@@ -367,6 +399,8 @@ session_start();
 														<div class="drop">
 															<b>01 room</b>
 															<a href="#" class="drop-list"><i class="fa fa-angle-down"></i></a>
+															<a href="#" class="drop-list"><i
+																	class="fa fa-angle-down"></i></a>
 															<span>
 																<a href="#">01 room</a>
 																<a href="#">02 room</a>
@@ -379,6 +413,8 @@ session_start();
 											</div>
 											<div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
 												<a href="#" class="c-button b-60 bg-aqua hv-transparent"><i class="fa fa-search"></i><span>search now</span></a>
+												<a href="#" class="c-button b-60 bg-aqua hv-transparent"><i
+														class="fa fa-search"></i><span>search now</span></a>
 											</div>
 										</div>
 									</div>
@@ -435,6 +471,8 @@ session_start();
 									</div>
 								</div>
 								<a href="#" class="c-button b-50 bg-aqua hv-transparent fr"><img src="img/flag_icon.png" alt=""><span>view more</span></a>
+								<a href="#" class="c-button b-50 bg-aqua hv-transparent fr"><img src="img/flag_icon.png"
+										alt=""><span>view more</span></a>
 							</div>
 						</div>
 					</div>
@@ -508,7 +546,8 @@ session_start();
 												19th</strong> to July<strong class="color-white"> 26th</strong></span>
 									</div>
 								</div>
-								<a href="#" class="c-button bg-aqua hv-transparent b-50 fr"><img src="img/flag_icon.png" alt=""><span>view more</span></a>
+								<a href="#" class="c-button bg-aqua hv-transparent b-50 fr"><img src="img/flag_icon.png"
+										alt=""><span>view more</span></a>
 							</div>
 						</div>
 					</div>
@@ -582,7 +621,8 @@ session_start();
 												19th</strong> to July<strong class="color-white"> 26th</strong></span>
 									</div>
 								</div>
-								<a href="#" class="c-button bg-aqua hv-transparent b-50 fr"><img src="img/flag_icon.png" alt=""><span>view more</span></a>
+								<a href="#" class="c-button bg-aqua hv-transparent b-50 fr"><img src="img/flag_icon.png"
+										alt=""><span>view more</span></a>
 							</div>
 						</div>
 					</div>
@@ -619,7 +659,8 @@ session_start();
 												19th</strong> to July<strong class="color-white"> 26th</strong></span>
 									</div>
 								</div>
-								<a href="#" class="c-button bg-aqua hv-transparent b-50 fr"><img src="img/flag_icon.png" alt=""><span>view more</span></a>
+								<a href="#" class="c-button bg-aqua hv-transparent b-50 fr"><img src="img/flag_icon.png"
+										alt=""><span>view more</span></a>
 							</div>
 						</div>
 					</div>
@@ -680,7 +721,8 @@ session_start();
 			<div class="bg bg-bg-chrome" style="background-image:url(img/11.jpg)">
 			</div>
 		</div>
-		<div class="swiper-container" data-autoplay="0" data-loop="1" data-speed="1000" data-slides-per-view="1" id="tour-slide">
+		<div class="swiper-container" data-autoplay="0" data-loop="1" data-speed="1000" data-slides-per-view="1"
+			id="tour-slide">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
 					<div class="container">
