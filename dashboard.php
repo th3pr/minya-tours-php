@@ -67,7 +67,7 @@ session_start();
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<a href="index.html" class="logo">
+						<a href="index.php" class="logo">
 							<img src="img/minyalogo1.png" alt="Minya Tours">
 						</a>
 						<div class="nav-menu-icon">
@@ -76,7 +76,7 @@ session_start();
 						<nav class="menu">
 							<ul>
 								<li class="type-1">
-									<a href="index.html">home<span class="fa fa-angle-down"></span></a>
+									<a href="index.php">home<span class="fa fa-angle-down"></span></a>
 								</li>
 								<li class="type-1 active"><a href="hotels.html">Hotels<span
 											class="fa fa-angle-down"></span></a>

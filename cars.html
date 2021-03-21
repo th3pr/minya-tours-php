@@ -74,7 +74,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<a href="index.html" class="logo">
+						<a href="index.php" class="logo">
 							<img src="img/minyalogo1.png" alt="lets travel">
 						</a>
 						<div class="nav-menu-icon">
@@ -83,7 +83,7 @@
 						<nav class="menu">
 							<ul>
 								<li class="type-1">
-									<a href="index.html">home<span class="fa fa-angle-down"></span></a>
+									<a href="index.php">home<span class="fa fa-angle-down"></span></a>
 								</li>
 								<li class="type-1 "><a href="hotels.html">Hotels<span
 											class="fa fa-angle-down"></span></a>
